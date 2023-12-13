@@ -2,7 +2,7 @@
 
 We welcome contributions to the CIOOS Geographical Reference Assets project! If you have any geographical regions or station files that you would like to share, please follow the guidelines below.
 
-## How to Contribute
+## How to
 
 1. Fork the repository to your own GitHub account.
 2. Clone the forked repository to your local machine.
@@ -15,7 +15,7 @@ We welcome contributions to the CIOOS Geographical Reference Assets project! If 
 9. In the pull request description, explain the purpose and contents of your contribution.
 10. Submit the pull request and wait for the project maintainers to review your contribution.
 
-## Contribution Guidelines
+## Before submitting
 
 - Ensure that your geographical regions or station files are properly formatted and documented.
 - Include any necessary metadata or attribution information with your files.

@@ -1,21 +1,30 @@
-name: Test repository
-
-on:
-  push:
-    branches:
-      - main
-      - development
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Set up Super-Linter
-        uses: github/super-linter@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          validate_all_codebase: true
+---
+    name: Lint
+    
+    on:  # yamllint disable-line rule:truthy
+      push:
+        branches: [development, main]
+      pull_request: 
+        branches: [development, main]
+    
+    jobs:
+      build:
+        name: Lint
+        runs-on: ubuntu-latest
+    
+        permissions:
+          contents: read
+          packages: read
+          # To report GitHub Actions status checks
+          statuses: write
+    
+        steps:
+          - name: Checkout code
+            uses: actions/checkout@v4
+    
+          - name: Super-linter
+            uses: super-linter/super-linter@v5
+            env:
+              DEFAULT_BRANCH: main
+              # To report GitHub Actions status checks
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

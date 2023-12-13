@@ -1,0 +1,21 @@
+name: Test repository
+
+on:
+    push:
+        branches:
+            - main
+            - development
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout repository
+                uses: actions/checkout@v2
+
+            - name: Set up Super-Linter
+                uses: github/super-linter@v4
+                with:
+                    github_token: ${{ secrets.GITHUB_TOKEN }}
+                    validate_all_codebase: true
